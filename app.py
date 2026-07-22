@@ -1392,6 +1392,9 @@ class Handler(BaseHTTPRequestHandler):
         if self.path == "/":
             self.serve_file(STATIC_DIR / "index.html")
             return
+        if self.path in ("/favicon.ico", "/favicon.png"):
+            self.serve_file(STATIC_DIR / "favicon.png")
+            return
         if self.path.startswith("/static/"):
             requested = self.path.removeprefix("/static/")
             self.serve_file(STATIC_DIR / requested)

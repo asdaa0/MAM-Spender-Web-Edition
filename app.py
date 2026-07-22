@@ -32,7 +32,7 @@ MAX_LOG_LINES = 2000
 
 ROOT = Path(__file__).resolve().parent
 STATIC_DIR = ROOT / "static"
-DATA_DIR = ROOT / "data"
+DATA_DIR = Path(os.environ.get("MAM_SPENDER_DATA_DIR", ROOT / "data"))
 CONFIG_FILE = DATA_DIR / "config.json"
 COOKIE_FILE = DATA_DIR / "MAM.cookies"
 LOG_FILE = DATA_DIR / "log.txt"
